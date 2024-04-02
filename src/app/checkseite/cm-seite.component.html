@@ -1,0 +1,106 @@
+<nav  class="bg-blue-800">
+    <a href="#" class="bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page" routerLink="/home">Home</a>
+</nav>
+
+
+<main>
+    <h1 class="text-center font-bold">CheckModus</h1>
+
+    <div class="inline-flex justify-between space-x-4">
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " (click)="onPreviosClick()" >
+            Previous
+        </button>
+
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="onNextClick()">
+            Next
+        </button>
+
+        <button class="bg-blue-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" (click)="onAntwortPruefen(getScFrageElement(scfragen,indx))" >
+            Answer
+        </button>
+    </div>
+
+    <h3 class="font-bold text-right">Frage {{indx+1}}({{getScFrageElement(scfragen,indx).qid}})/{{scfragen.length}}</h3>
+    <h2>{{getScFrageElement(scfragen,indx).qtxt}}</h2>
+
+    <br>
+
+
+
+
+
+    <!-- SCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSCSC -->
+
+
+    <div *ngIf="getScFrageElement(scfragen,indx).qtyp==='sc'">
+      <!-- <div class="flex flex-col space-y-2">
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="A" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{getScFrageElement(scfragen,indx).qanswers[0].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="B" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{getScFrageElement(scfragen,indx).qanswers[1].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="C" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{getScFrageElement(scfragen,indx).qanswers[2].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="D" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{getScFrageElement(scfragen,indx).qanswers[3].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="E" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{getScFrageElement(scfragen,indx).qanswers[4].txt}}</span>
+        </label>
+
+      </div> -->
+
+      <div *ngFor="let item of items; let i=index">
+        <label class="inline-flex items-center mt-3">
+           <input type="radio" class="form-radio" name="radio-group" value=item.value [(ngModel)]="selectedAntwort">
+           <span class="ml-2">{{getScFrageElement(scfragen,indx).qanswers[i].txt}}</span>
+        </label>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+    <!-- MCMCMCMCMCMCMCMCMCMCMC -->
+
+    <div *ngIf="getScFrageElement(scfragen,indx).qtyp==='mc'">
+
+      <div *ngFor="let item of items; let i=index">
+        <label class="inline-flex items-center mt-3">
+           <input type="checkbox" [(ngModel)]="item.selected" class="form-checkbox h-5 w-5 text-indigo-600">
+           <span class="ml-2 text-gray-700">{{getScFrageElement(scfragen,indx).qanswers[i].txt}}</span>
+        </label>
+      </div>
+
+    </div>
+
+    <!-- FIFIFIFIFIFIFIFIFIFI -->
+
+    <div *ngIf="getScFrageElement(scfragen,indx).qtyp==='fi'">
+
+    </div>
+
+    
+
+
+<h3 class="font-bold text-right text-yellow-700">Fehler: {{fehler}}</h3>
+
+</main>
+
+

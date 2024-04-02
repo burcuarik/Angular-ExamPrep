@@ -1,0 +1,18 @@
+<nav  class="bg-blue-800">
+    <a href="#" class="bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page" routerLink="/home">Home</a>
+</nav>
+
+
+<h1 class="text-center font-bold">ExamModus (Exam)</h1>
+<br>
+<h2 class="text-left font-bold">
+    <ul>
+        <li>Anzahl der Fragen            : {{anzFragen}}</li>
+        <li>Anzahl richtiger Antworten   : {{anzFragen-fehler}}</li>
+        <li>Anzahl der Fehler            : {{fehler}}</li>
+        <li>Ergebniss in %               : {{(anzFragen-fehler)/anzFragen*100}} %</li>
+        <li>Ergebniss                    : Perfect! Du hast bestanden!</li>
+
+    </ul>
+    
+</h2>

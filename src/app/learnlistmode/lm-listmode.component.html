@@ -1,0 +1,63 @@
+
+<nav  class="bg-blue-800">
+    <a href="#" class="bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page" routerLink="/lm-seite">LernModus</a>
+
+</nav>
+
+
+
+<main>
+
+    <h1 class="text-center font-bold">LernModus (ListMode)</h1>
+
+    <div >
+        <ul >
+
+
+            <li *ngFor="let scfrage of scfragen; let i = index">
+                <div>
+                    <h3 class="font-bold">Frage {{scfrage.qid}}</h3>
+                    <h2>{{scfrage.qtxt}}</h2>
+
+                    <label class="inline-flex items-center">
+                        <input type="radio" class="form-radio" name="radio-group" value=i [(ngModel)]="isChecked" (change)="switchAnswer(scfrage.qid)" >
+                        <span class="ml-2 text-green-700 font-bold" >Answer</span>
+                    </label>
+
+                    <div *ngIf="nrAnswerShow!==scfrage.qid">
+
+                        <li *ngFor="let qanswer of scfrage.qanswers">
+
+                                <p class="ml-2 font-medium text-black-900">{{qanswer.txt}}</p>
+
+                        </li>
+                    </div>
+
+
+                    <div *ngIf="nrAnswerShow===scfrage.qid">
+                        <li *ngFor="let qanswer of scfrage.qanswers">
+
+                            <div *ngIf="scfrage.qtyp==='fi'">
+                                <p class="ml-2 font-medium text-green-700 font-bold">{{qanswer.txt}}</p>
+                            </div>
+
+                            <div *ngIf="scfrage.qtyp!=='fi'">
+                                <div *ngIf="qanswer.correct">
+                                    <p class="ml-2 font-medium text-green-700 font-bold">{{qanswer.txt}}</p>
+                                </div>
+    
+                                <div *ngIf="!qanswer.correct">
+                                    <p class="ml-2 font-medium text-yellow-700 font-bold">{{qanswer.txt}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+
+                    <br>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+</main>

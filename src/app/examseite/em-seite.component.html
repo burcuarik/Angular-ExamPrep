@@ -1,0 +1,38 @@
+<nav  class="bg-blue-800">
+    <a href="#" class="bg-blue-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page" routerLink="/home">Home</a>
+</nav>
+
+<h1 class="text-center font-bold">ExamModus (Manual)</h1>
+
+<div>
+    <h2 text-blue> Sind Sie bereit für eine Prüfung? Dann los geht's!</h2>
+</div>
+<br>
+
+<h2 class="text-center font-bold">VIEL ERFOLG!</h2>
+
+<div class="flex flex-col space-y-2">
+
+    <label class="inline-flex items-center">
+      <input type="radio" class="form-radio" name="radio-group" value="20" [(ngModel)]="selectedAntwort">
+      <span class="ml-2">20 Questions (BEGINNER)</span>
+    </label>
+
+    <label class="inline-flex items-center">
+      <input type="radio" class="form-radio" name="radio-group" value="40" [(ngModel)]="selectedAntwort">
+      <span class="ml-2">40 Questions (Elementary)</span>
+    </label>
+
+    <label class="inline-flex items-center">
+      <input type="radio" class="form-radio" name="radio-group" value="60" [(ngModel)]="selectedAntwort">
+      <span class="ml-2">60 Questions (ADVANCED)</span>
+    </label>
+
+    <br>
+</div>
+
+<div>
+    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" (click)="zuExamSinglechoice()"  >
+        Start
+    </button>
+</div>

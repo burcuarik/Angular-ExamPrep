@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'lnx-root',
   templateUrl: './app.component.html',

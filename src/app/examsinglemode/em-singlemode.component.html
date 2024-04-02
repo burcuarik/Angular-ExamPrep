@@ -1,0 +1,41 @@
+<h1 class="text-center font-bold">ExamModus (Exam)</h1>
+<h3 class="font-bold text-right text-blue-700">Progress {{indx}}/{{anzFragen}}//{{fehler}}</h3>
+
+<h3 class="font-bold text-center">Frage {{indx+1}} ({{scfragen[fragenNummerArr[indx]].qid}})</h3>
+<h2>{{scfragen[fragenNummerArr[indx]].qtxt}}</h2>
+
+<br>
+    <div class="flex flex-col space-y-2">
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="A" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{scfragen[fragenNummerArr[indx]].qanswers[0].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="B" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{scfragen[fragenNummerArr[indx]].qanswers[1].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="C" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{scfragen[fragenNummerArr[indx]].qanswers[2].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="D" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{scfragen[fragenNummerArr[indx]].qanswers[3].txt}}</span>
+        </label>
+
+        <label class="inline-flex items-center">
+          <input type="radio" class="form-radio" name="radio-group" value="E" [(ngModel)]="selectedAntwort">
+          <span class="ml-2">{{scfragen[fragenNummerArr[indx]].qanswers[4].txt}}</span>
+        </label>
+
+    </div>
+
+    <br>
+    <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" (click)="onAntwortPruefen(scfragen[fragenNummerArr[indx]])">
+        Nächste
+    </button>
+<p>{{scfragen[fragenNummerArr[indx]].qcorrect}}</p>
